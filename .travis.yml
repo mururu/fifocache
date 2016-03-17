@@ -1,7 +1,7 @@
 language: erlang
 otp_release:
   - 18.2
-script: "./rebar3 eunit"
+script: "make"
 notifications:
   email:
     - yuki.mururu@gmail.com
