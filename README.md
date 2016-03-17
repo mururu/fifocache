@@ -1,6 +1,8 @@
 fifocache
 =====
 
+[![Build Status](https://travis-ci.org/mururu/fifocache.svg?branch=master)](https://travis-ci.org/mururu/fifocache)
+
 **fifocache** is a fixed size FIFO cache implementation in Erlang.
 
 FIFO cache is sometimes necessary.
