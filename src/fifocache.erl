@@ -9,7 +9,7 @@
           keys :: array:array(_),
           size :: non_neg_integer(),
           index :: non_neg_integer(),
-          length :: non_neg_integer()
+          full :: boolean()
          }).
 
 -type entry(Value) :: {Value, pos_integer()}.
@@ -21,15 +21,17 @@
 
 -spec new(Size :: non_neg_integer()) -> fifocache().
 new(Size) ->
-    #fifocache{cache = maps:new(), keys = array:new(Size), size = Size, index = 0, length = 0}.
+    #fifocache{cache = maps:new(), keys = array:new(Size), size = Size, index = 0, full = false}.
 
 -spec push(Key, Value, fifocache(Key, Value)) -> fifocache(Key, Value).
-push(Key, Value, #fifocache{cache = Cache, keys = Keys, size = Size, index = Index, length = Size} = Fifocache) ->
+push(Key, Value, #fifocache{cache = Cache, keys = Keys, size = Size, index = Index, full = true} = Fifocache) ->
     RemoveKey = array:get(Index, Keys),
     Cache0 = count_down(RemoveKey, Cache),
-    Fifocache#fifocache{cache = count_up(Key, Value, Cache0), keys = array:set(Index, Key, Keys), index = (Index + 1) rem Size};
-push(Key, Value, #fifocache{cache = Cache, keys = Keys, length = Length} = Fifocache) ->
-    Fifocache#fifocache{cache = count_up(Key, Value, Cache), keys = array:set(Length, Key, Keys), length = Length + 1}. 
+    Fifocache#fifocache{cache = count_up(Key, Value, Cache0), keys = array:set(Index, Key, Keys),
+                        index = (Index + 1) rem Size};
+push(Key, Value, #fifocache{cache = Cache, keys = Keys, size = Size, index = Index} = Fifocache) ->
+    Fifocache#fifocache{cache = count_up(Key, Value, Cache), keys = array:set(Index, Key, Keys),
+                        index = (Index + 1) rem Size, full = (Index == Size - 1)}.
 
 -spec lookup(Key, fifocache(Key, Value)) -> Value | not_found.
 lookup(Key, #fifocache{cache = Cache}) ->
