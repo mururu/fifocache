@@ -11,5 +11,5 @@ clean:
 eunit:
 	@./rebar3 eunit
 
-dialyze:
+dialyzer:
 	@./rebar3 dialyzer
