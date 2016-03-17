@@ -1,6 +1,8 @@
 fifocache
 =====
 
+**fifocache** is a fixed size FIFO cache implementation in Erlang.
+
 FIFO cache is sometimes necessary.
 
 ## Usage
