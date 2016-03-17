@@ -46,19 +46,19 @@ lookup(Key, #fifocache{cache = Cache}) ->
 %% Internal Functions
 
 -spec count_up(Key, Value, #{Key => Value}) -> #{Key => Value}.
-count_up(Key, Value, Map) ->
-    case maps:find(Key, Map) of
+count_up(Key, Value, Cache) ->
+    case maps:find(Key, Cache) of
         {ok, {_, Count}} ->
-            maps:put(Key, {Value, Count + 1}, Map);
+            maps:put(Key, {Value, Count + 1}, Cache);
         _ ->
-            maps:put(Key, {Value, 1}, Map)
+            maps:put(Key, {Value, 1}, Cache)
     end.
 
 -spec count_down(Key, #{Key => Value}) -> #{Key => Value}.
-count_down(Key, Map) ->
-    case maps:find(Key, Map) of
+count_down(Key, Cache) ->
+    case maps:find(Key, Cache) of
         {ok, {_, 1}} ->
-            maps:remove(Key, Map);
+            maps:remove(Key, Cache);
         {ok, {Value, N}} ->
-            maps:put(Key, {Value, N - 1}, Map)
+            maps:put(Key, {Value, N - 1}, Cache)
     end.
