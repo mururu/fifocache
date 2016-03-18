@@ -1,6 +1,6 @@
 {application, fifocache,
  [{description, "Fixed size FIFO cache implementation"},
-  {vsn, "0.1.0"},
+  {vsn, "1.0.0"},
   {registered, []},
   {applications,
    [kernel,
