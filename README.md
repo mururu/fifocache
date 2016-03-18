@@ -20,9 +20,9 @@ FIFO cache is sometimes necessary.
                   {key0,undefined,undefined,undefined,undefined,undefined,
                         undefined,undefined,undefined,undefined}},
            10,1,false}
-3> value0 = fifocache:lookup(key0, Cache1).
+3> fifocache:lookup(key0, Cache1).
 value0
-4> not_found = fifocache:lookup(key1, Cache1).
+4> fifocache:lookup(key1, Cache1).
 not_found
 ```
 
