@@ -1,5 +1,5 @@
 {application, fifocache,
- [{description, "An OTP library"},
+ [{description, "Fixed size FIFO cache implementation"},
   {vsn, "0.1.0"},
   {registered, []},
   {applications,
@@ -9,7 +9,7 @@
   {env,[]},
   {modules, []},
 
-  {maintainers, []},
-  {licenses, []},
-  {links, []}
+  {maintainers, ["Yuki Ito"]},
+  {licenses, ["Apache"]},
+  {links, [{"Github", "https://github.com/mururu/fifocache"}]}
  ]}.
