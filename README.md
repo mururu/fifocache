@@ -2,6 +2,8 @@ fifocache
 =====
 
 [![Build Status](https://travis-ci.org/mururu/fifocache.svg?branch=master)](https://travis-ci.org/mururu/fifocache)
+[![hex.pm version](https://img.shields.io/hexpm/v/fifocache.svg)](https://hex.pm/packages/fifocache)
+
 
 **fifocache** is a fixed size FIFO cache implementation in Erlang.
 
