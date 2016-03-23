@@ -19,7 +19,7 @@
 -opaque fifocache(Key, Value) :: #fifocache{cache :: #{Key => entry(Value)}, keys :: array:array(Key)}.
 
 
--spec new(Size :: non_neg_integer()) -> fifocache().
+-spec new(Size :: pos_integer()) -> fifocache().
 new(Size) ->
     #fifocache{cache = maps:new(), keys = array:new(Size), size = Size, index = 0, full = false}.
 
