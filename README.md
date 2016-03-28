@@ -12,17 +12,14 @@ FIFO cache is sometimes necessary.
 ## Usage
 
 ```
-1> Cache0 = fifocache:new(10).
-{fifocache,#{},{array,10,0,undefined,10},10,0,false}
+1> Cache0 = fifocache:new(2).
+{fifocache,#{},{array,2,0,undefined,10},2,0,false}
 2> Cache1 = fifocache:push(key0, value0, Cache0).
-{fifocache,#{key0 => {value0,1}},
-           {array,10,0,undefined,
-                  {key0,undefined,undefined,undefined,undefined,undefined,
-                        undefined,undefined,undefined,undefined}},
-           10,1,false}
-3> fifocache:lookup(key0, Cache1).
-value0
-4> fifocache:lookup(key1, Cache1).
+3> Cache2 = fifocache:push(key1, value1, Cache1).
+4> Cache3 = fifocache:push(key2, value2, Cache2).
+5> fifocache:lookup(key2, Cache3).
+value2
+6> fifocache:lookup(key0, Cache3).
 not_found
 ```
 
