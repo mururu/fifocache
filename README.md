@@ -5,7 +5,7 @@ fifocache
 [![hex.pm version](https://img.shields.io/hexpm/v/fifocache.svg)](https://hex.pm/packages/fifocache)
 
 
-**fifocache** is a fixed size FIFO cache implementation in Erlang.
+**fifocache** is a fixed size FIFO cache implementation (O(logN)) in Erlang.
 
 FIFO cache is sometimes necessary.
 
